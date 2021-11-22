@@ -1,0 +1,61 @@
+#THIS FILE HAS ALL THE INSERTED RECORDS INTO RETAIL DATABASE INTO MONGODB USING PYMONGO
+
+Soap = db["Soap"]
+doc1=[{"_id":"sp1","name":"Dove","exp_date":"2022-10-01","price":99},{"_id":"sp2","name":"Entice","exp_date":"2021-03-19","price":199},{"_id":"sp3","name":"Mysore Sandal","exp_date":"2023-03-19","price":299},{"_id":"sp4","name":"Himalaya","exp_date":"2021-01-12","price":90},{"_id":"sp5","name":"Pears","exp_date":"2022-12-12","price":69}]
+Soap.insert_many(doc1)
+
+Shampoo = db["Shampoo"]
+doc2 = [{"_id":"sh1","name":"Loreal","exp_date":"2021-01-18","price":358},{"_id":"sh2","name":"Tressemme","exp_date":"2022-01-23","price":358},{"_id":"sh3","name":"Body Shop","exp_date":"2021-12-12","price":858},{"_id":"sh4","name":"Skin Kraft","exp_date":"2023-03-22","price":1058},{"_id":"sh5","name":"Chick","exp_date":"2021-08-23","price":158}]
+Shampoo.insert_many(doc2)
+
+CreamLotion = db["CreamLotion"]
+doc3 = [{"_id":"cl1","name":"Nuetrogena","exp_date":"2021-01-23","price":358},{"_id":"cl2","name":"Tressemme","exp_date":"2022-01-19","price":358},{"_id":"cl3","name":"Body Shop","exp_date":"2021-12-24","price":858},{"_id":"cl4","name":"Skin Kraft","exp_date":"2023-03-11","price":1058},{"_id":"cl5","name":"Chick","exp_date":"2021-10-12","price":158}]
+CreamLotion.insert_many(doc3)
+
+Beauty = db["Beauty"]
+doc4={"_id":"bid","Soap":["sp1","sp2","sp3","sp4","sp5"],"Shampoo":["sh1","sh2","sh3","sh4","sh5"],"CreamLotion":["cl1","cl2","cl3","cl4","cl5"]}
+Beauty.insert_one(doc4)
+
+Pharmacy = db["Pharmacy"]
+doc5 = [{"_id":"p1","name":"Dolo650","exp_date":"2021-12-10","price":89},{"_id":"p2","name":"Otrivin","exp_date":"2022-01-10","price":189},{"_id":"p3","name":"Benadryl","exp_date":"2022-03-10","price":169},{"_id":"p4","name":"Paracetamol","exp_date":"2021-01-10","price":59},{"_id":"p5","name":"AscorilDS","exp_date":"2022-05-10","price":189}]
+Pharmacy.insert_many(doc5)
+
+MenWear=db["MenWear"]
+doc6=[{"_id":"mc1","name":"Pants","size":["S","L","XL"],"price":599},{"_id":"mc2","name":"Shirts","size":["S","L","XL"],"price":999},{"_id":"mc3","name":"Trousers","size":["S","L","XL"],"price":1999},{"_id":"mc4","name":"Hoodies","size":["L","XL"],"price":2999}]
+MenWear.insert_many(doc6)
+
+WomenWear=db["WomenWear"]
+doc7=[{"_id":"wc1","name":"Sarree","color":["red","blue","yellow"],"price":4599},{"_id":"wc2","name":"Tops","size":["S","L","XL"],"price":999},{"_id":"wc3","name":"Kurthi","size":["S","L","XL"],"price":1999},{"_id":"wc4","name":"Sandals","size":[4,5,8],"price":899}]
+WomenWear.insert_many(doc7)
+
+Fashion=db["Fashion"]
+doc8={"_id":"cloth1","MeanWear":["mc1","mc2","mc3","mc4"],"WomenWear":["wc1","wc2","wc3","wc4"]}
+Fashion.insert_one(doc8)
+
+Mobile = db["Mobile"]
+doc9=[{"_id":"mob1","name":"iPhone","version":"13ProMax","color":["red","Sierrablue","Black"],"price":130000},{"_id":"mob2","name":"OnePlus","version":"Nord","color":["Sierrablue","Black"],"price":43000},{"_id":"mob3","name":"Samsung","version":"Galaxy J6","color":["White","Black"],"price":13000},{"_id":"mob4","name":"Vivo","version":"V8","color":["Black","White","Metallic Blue"],"price":28000}]
+Mobile.insert_many(doc9)
+
+TV=db["TV"]
+doc10=[{"_id":"tv1","name":"Sony","Pixels":"3840x2160","color":["Black","Silver"],"price":100000},{"_id":"tv2","name":"OnePlus","Pixels":"4840x1160","color":["Black","Silver","Metallic Blue"],"price":38000},{"_id":"tv3","name":"Apple TV","Pixels":"1080p","color":["White","Black","Silver"],"price":250000},{"_id":"tv4","name":"LG","Pixels":"1890x2230","color":["Black","Silver"],"price":23000}]
+TV.insert_many(doc10)
+
+ElectricAppliances=db["ElectricAppliances"]
+doc11={"_id":"elecid","TV":["tv1","tv2","tv3","tv4"],"Mobile":["mob1","mob2","mob3","mob4"]}
+ElectricAppliances.insert_one(doc11)
+
+Snacks = db["Snacks"]
+doc12=[{"_id":"sn1","name":"Lays","exp_date":"2022-01-19","color":["green","red","orange","blue"],"price":20},{"_id":"sn2","name":"Kellogg's Corn Flakes","exp_date":"2021-12-19","Flavour":["Honey","Strawberry","Wheat&Milk"],"price":120},{"_id":"sn3","name":"Hide&Seek","exp_date":"2022-01-01","Flavour":["Choco-Chips","Coffee"],"price":70},{"_id":"sn4","name":"Oreo","exp_date":"2021-08-19","Flavour":["Basic","Extra"],"price":40}]
+Snacks.insert_many(doc12)
+
+Veggies = db["Veggies"]
+doc13=[{"_id":"veg1","name":"Onion","weight":"1kg","price":60},{"_id":"veg2","name":"Garlic","weight":"2kg","price":245},{"_id":"veg3","name":"Brocolli","weight":"1kg","price":35},{"_id":"veg4","name":"Potato","weight":"1kg","price":50}]
+Veggies.insert_many(doc13)
+
+Food = db["Food"]
+doc14 = {"_id":"foodid","Snacks":["sn1","sn2","sn3","sn4"],"Veggies":["veg1","veg2","veg3","veg4"]}
+Food.insert_one(doc14)
+
+Products = db["Products"]
+main_doc={"_id":"mainid","Beauty":"bid","Pharmacy":["p1","p2","p3","p4","p5"],"Fashion":"cloth1","ElectricAppliances":"elecid","Food":"foodid"}
+Products.insert_one(main_doc)
